@@ -1,0 +1,46 @@
+set -g default-terminal "xterm-256color"
+
+# Setting the prefix from C-b to C-Space
+unbind C-b
+set -g prefix C-Space
+bind C-Space send-prefix
+
+#Passar para  o shell os atalhos do redline
+set-window-option -g xterm-keys on
+
+# Cconfigura o atraso da tecla ESC para 0ms....
+set -s escape-time 0
+
+#Regarrega configurações...
+bind r source-file ~/.tmux.conf \; display-message "Settings reload!"
+
+#Habilitar o mouse...
+#Set -g mouse on
+
+#Associa <prefixo>h a criação de uma novo painel ao lado..
+unbind %
+unbind  '"'
+
+bind h split-window -h
+bind v split-window -v
+
+#Navegação entre paineis com Alt+setas...
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Navegar entre as janelas com Alt+< e Alt+>
+bind -n M-< previous-window
+bind -n M-> previous-window
+
+# Posição da barra de status...
+set -g status-position top
+
+# indize inicial de janela e paineis....
+set -g base-index 1
+set -g pane-base-index 1
+
+
+
+
